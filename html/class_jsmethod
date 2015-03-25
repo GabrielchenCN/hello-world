@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var myfuncObject={
+             ran: function()  {
+            var rand = Math.round(Math.random() * 1000);
+            document.write(rand+"<br/>");
+                                 },
+            alertTime:function(){
+                var date = new Date();
+                Year = date.getFullYear();
+                Month = date.getMonth();
+                Day = date.getDate();
+                Hours = date.getHours();
+                Minutes = date.getMinutes();
+                Seconds  = date.getSeconds();
+                month =["01","02","03","04","05","06","07","08","09","10","11","12"]
+                if(Day<10){
+                    Day = "0"+Day;
+                }
+                 if(Minutes<10){
+                    Minutes= "0"+Minutes;
+                }
+                if(Hours<10){
+                    Hours= "0"+Hours;
+                }
+                if(Seconds<10){
+                    Seconds= "0"+Seconds;
+                }
+
+
+
+
+                alert(Year+"年"+month[Month]+"月"+Day+"日"+Hours+"时"+Minutes+"分"+Seconds+"秒");
+            }
+
+        }
+
+        var Cricle={
+           'radius': 2 ,
+            perimeter: function() {
+                per = this.radius*2*Math.PI;
+                document.write(per+"<br/>");
+                return per;
+            },
+            area: function(){
+                are = (this.radius)*(this.radius)*(Math.PI);
+                document.write(are+"<br/>");
+                return are;
+            }
+
+
+
+        }
+
+        function CriClass(rad){
+            this.radius=rad;
+            this.perimeter=function(){
+                 per = this.radius*2*Math.PI;
+                document.write(per+"<br/>");
+            }
+        }
+        var myCri = new CriClass(3).perimeter();
+        Cricle.area();
+        Cricle.perimeter();
+      myfuncObject.alertTime();
+        myfuncObject.ran();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
