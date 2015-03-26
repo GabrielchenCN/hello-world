@@ -2,6 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name = "author" content="chen siming ,Gabrielchen,chengdu ">
     <title>bitOperation</title>
     <script>
         //hey,if we don't have the function of round() in javascript,what should we do ?
@@ -55,7 +56,7 @@
         //it's very sorry to tell you ,the functions of "myRound2()" and "myRoudBit()" are not to work correctly
         function main(){
             var x= document.getElementById("bitOpera").value;
-            document.write("myRound1:"+myRound1(x)+"<br/>"+"myRound2(error):"+myRound2(x)+"<br/>"+"myRoundBit(error):"+myRoundBit(x)+"<br/>");
+            document.write("myRound1:"+myRound1(x)+"<br/>"+"myRound2(error):"+myRound2(x)+"<br/>"+"myRoundBit(error):"+myRoundBit(x)+"<br/>"+"Math.round():"+Math.round(x)+"<br/>");
             document.write("it's very sorry to tell you ,the functions of 'myRound2()' and 'myRoudBit()' are not to work correctly,can you fix it ?");
         }
 
