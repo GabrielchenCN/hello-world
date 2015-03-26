@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>bitOperation</title>
+    <script>
+        //hey,if we don't have the function of round() in javascript,what should we do ?
+        function myRound1(x){
+            //why not use toString()? what are their difference?
+            //about "null" and "undefined"
+
+            var xStr = String(x).split(".");
+            xStr0=xStr[0];
+            xStr1=xStr[1];
+            if(xStr1==null){
+                return x;
+            }
+            else {
+                if (parseInt(xStr1.slice(0, 1)) > 5) {
+                    if (parseInt(xStr0 > 0)) {
+                        return parseInt(xStr0) + 1;
+                    }
+                    else return parseInt(xStr0) - 1;
+                }
+                else return parseInt(xStr0);
+            }
+
+            //for me is difficult to distinguish split()分离 and slice()切下
+            //split() 法用于把一个字符串分割成字符串数组,return:array[]  parameter: split(separator,howmany)
+            //separator	必需。字符串或正则表达式，从该参数指定的地方分割 stringObject。
+            //howmany	可选。该参数可指定返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数组。
+            // 如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。
+
+            //slice()方法可从已有的数组中返回选定的元素 return :返回一个新的数组，包含从 start 到 end （不包括该元素）的 arrayObject 中的元素。  parameter :slice(start,end)
+            //start	必需。规定从何处开始选取。如果是负数，那么它规定从数组尾部开始算起的位置。也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。
+            //end	可选。规定从何处结束选取。该参数是数组片断结束处的数组下标。如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。如果这个参数是负数，那么它规定的是从数组尾部开始算起的元素。
+        }
+
+        //what if we can not use the all javascript function ,how can we do that ?
+        function myRound2(x){
+
+            //| 二进制或运算
+            return ~~(x > 0 ? (x + 0.5) : (x - 0.5));
+
+
+        }
+
+        function myRoundBit(x){
+            //bit - operation
+            //~就是按位取反，类似：00111，取反则为11000。取反会干掉小数
+            //   if x =12.5 then  ~x =12
+            //>>是有符号右移运算符
+             return ~~(x + 0.5 + (x >> 30));
+        }
+        //it's very sorry to tell you ,the functions of "myRound2()" and "myRoudBit()" are not to work correctly
+        function main(){
+            var x= document.getElementById("bitOpera").value;
+            document.write("myRound1:"+myRound1(x)+"<br/>"+"myRound2(error):"+myRound2(x)+"<br/>"+"myRoundBit(error):"+myRoundBit(x)+"<br/>");
+            document.write("it's very sorry to tell you ,the functions of 'myRound2()' and 'myRoudBit()' are not to work correctly,can you fix it ?");
+        }
+
+    </script>
+</head>
+<body>
+    <h1>please enter the DECIMAL</h1>
+    <input type="text" id="bitOpera">
+    <input type="button" id="btn" value="click" onclick="main()">
+
+</body>
+</html>
