@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>sort algorithm</title>
+
+    <script>
+
+
+        var q = [10,2,31,23,1,32,2,35,5,12,44,65]
+
+        function insertSort(){}
+
+        
+        //从大到小
+        function quickSort(x){
+            function qSort(prev,size){
+                var key = x[prev];
+                var i= prev,j=size-1;
+                if ((size-prev)>1) {
+                    if(i!=j) {
+                        for (; j > 0; j--) {
+                            if (key > parseInt(x[j])) {
+
+                                x[i] = x[j];
+                                break;
+                            }
+                        }
+                        for (; i < size; i++) {
+                            if (key < parseInt(x[i])) {
+                                x[j] = x[i];
+                                break;
+                            }
+
+                        }
+                    }
+                    else {
+                        x[i]=key;
+                        prev = i;
+                    }
+                     qSort(0,prev);
+                    qSort(prev+1,size)
+                }
+            }
+            qSort(0, x.length);
+            return x;
+
+        }
+        //从小到大
+        function  bubbleSort(x){
+
+            for (var i=0;i< x.length;i++){
+                 for (var j=0;j< x.length-i;j++){
+                     if(parseInt(x[j])>parseInt(x[j+1])){
+                         //每轮进行x.length－1－i 次比较，最多x.length－1－i 次交换,把大的冒泡出来
+                       var temp1 = x[j+1];
+                         x[j+1]=x[j];
+                         x[j]=temp1;
+                     }
+                 }
+
+            }
+           alert(x);
+            console.log(x);
+
+        }
+    function handleArray(){
+        var arr=document.getElementById("txt").split(",");
+
+        return arr;
+    }
+
+    </script>
+
+</head>
+<body>
+
+    <input type="text" id="txt" placeholder="输入数组以,号分割" value="10,2,31,23,1,32,2,35,5,12,44,65">
+    <button onclick="bubbleSort(array)">bubbleSort</button>
+    <button onclick="quickSort1(array)">quickSort</button>
+    <button onclick="insertSort()">insertSort</button>
+
+      <script>
+
+         var array = document.getElementById("txt").value.split(",");
+      </script>
+</body>
+</html>
