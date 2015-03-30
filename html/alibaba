@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<table border =1 cellspacing = 0>
+    <tr>
+        <th width = "20%">国家</th>
+        <th width="20%">名称</th>
+        <th width = "40&">地址</th>
+        <th width="20%">排名</th>
+    </tr>
+    <tr>
+        <td align="center"> 中国</td>
+        <td>淘宝</td>
+        <td>www.taobao.com</td>
+        <td>32</td>
+    </tr>
+      <tr>
+        <td rowspan="2" align="center"> 美国</td>
+        <td>ebay</td>
+        <td>www.ebay.com</td>
+        <td>22</td>
+    </tr>
+     <tr>
+
+        <td>facebook</td>
+        <td>www.facebook.com</td>
+        <td>12</td>
+    </tr>
+      <tr>
+
+        <td colspan="4" align="right">网站排名</td>
+
+    </tr>
+</table>
+
+</body>
+</html>
