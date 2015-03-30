@@ -1,6 +1,6 @@
 # hello-world
 github test
 
-hi 
+html css python javascript sync
 
 Gabriel_chen
