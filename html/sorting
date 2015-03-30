@@ -7,7 +7,7 @@
     <script>
 
 
-        var q = [10,2,31,23,1,32,2,35,5,12,44,65]
+        var q = [10,2,31,23,1,32,2,35,5,12,44,65];
 
         function insertSort(){}
 
@@ -17,24 +17,31 @@
             function qSort(prev,size){
                 var key = x[prev];
                 var i= prev,j=size-1;
-                if ((size-prev)>1) {
-                    if(i!=j) {
+
+               if ((size-prev)>1) {
+                    while(i!=j) {
                         for (; j > 0; j--) {
-                            if (key > parseInt(x[j])) {
+                           //alert(typeof x[j]);
+                            if(i==j) break;
+                            if (parseInt(key) > parseInt(x[j])) {
+
 
                                 x[i] = x[j];
                                 break;
                             }
                         }
                         for (; i < size; i++) {
-                            if (key < parseInt(x[i])) {
+                            if(i==j) break;
+                            if (parseInt(key)  < parseInt(x[i])) {
+
                                 x[j] = x[i];
                                 break;
                             }
 
                         }
                     }
-                    else {
+                    if(i==j) {
+
                         x[i]=key;
                         prev = i;
                     }
@@ -43,6 +50,7 @@
                 }
             }
             qSort(0, x.length);
+            alert(x);
             return x;
 
         }
@@ -77,7 +85,7 @@
 
     <input type="text" id="txt" placeholder="输入数组以,号分割" value="10,2,31,23,1,32,2,35,5,12,44,65">
     <button onclick="bubbleSort(array)">bubbleSort</button>
-    <button onclick="quickSort1(array)">quickSort</button>
+    <button onclick="quickSort(array)">quickSort</button>
     <button onclick="insertSort()">insertSort</button>
 
       <script>
