@@ -22,7 +22,9 @@
                     while(i!=j) {
                         for (; j > 0; j--) {
                            //alert(typeof x[j]);
-                            if(i==j) break;
+                            if(i==j) { x[i]=key;
+                        prev = i;
+                                break;}
                             if (parseInt(key) > parseInt(x[j])) {
 
 
@@ -31,7 +33,9 @@
                             }
                         }
                         for (; i < size; i++) {
-                            if(i==j) break;
+                            if(i==j) { x[i]=key;
+                        prev = i;
+                                break;}
                             if (parseInt(key)  < parseInt(x[i])) {
 
                                 x[j] = x[i];
@@ -40,11 +44,10 @@
 
                         }
                     }
-                    if(i==j) {
+                    /*if(i==j) {
 
-                        x[i]=key;
-                        prev = i;
-                    }
+
+                    }*/
                      qSort(0,prev);
                     qSort(prev+1,size)
                 }
