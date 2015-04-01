@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script>
+    function fn(input) {
+input = parseInt(input,10);
+return isPrime(input) ? 'is prime' : 'not prime';
+}
+    function isPrime(x){
+        if(x==2){return true;}
+        else if(x>1){
+  for(i=2;i<x;i++){
+   k = x%i;
+   if(k == 0){break;}
+  }
+  if(k == 0){
+   return false;
+  }else{
+   return true;
+  }
+ }else{
+  return false;
+ }
+    }
+    var x=132;
+    document.write(fn(x));
+
+</script>
+<body>
+
+</body>
+</html>
