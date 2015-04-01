@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+      <div id=”container”></div>
+<script>
+     /*var otest = document.getElementById("container");
+    for(var i =0;i<100;i++){
+        var newnode=document.createElement("span");
+        newnode.innerHTML=i+1;
+         otest.appendChild(newnode);
+    }*/
+         var board = document.getElementById("container");
+    for(var i=0;i<100;i++) {
+        var e = document.createElement("span");
+        e.innerHTML = "span<br>"
+        var object = board.appendChild(e);
+    }
+    //上面的代码显示找不到appendChild方法，改成下面即可，赋值给一个变量
+</script>
+
+</body>
+
+</html>
