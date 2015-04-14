@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<title>挑战题</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li class="hide">5</li>
+        <li class="hide">6</li>
+        <li class="hide">7</li>
+        <li>8</li>
+        <li><a href="#">更多</a></li>
+    </ul>
+</body>
+<script type="text/javascript">
+    $("li:eq(4)").css("display","none");
+    $("li:eq(5)").css("display","none");
+    $("li:eq(6)").css("display","none");
+    $("a").click(function(){
+        if($("a").text()==='更多'){
+          $('.hide').show();
+          $("a").html("简化");
+        }else{
+          $('.hide').hide();
+          $("a").html("更多");
+        }
+    });
+</script>
+</html>
