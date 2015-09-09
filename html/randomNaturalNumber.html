@@ -1,0 +1,50 @@
+<script type = "text/javascript" >
+
+
+var randomPositiveInteger = function(count) {
+	var originalArray = new Array(); //原数组 
+	//给原数组originalArray赋值 
+	for (var i = 0; i < count; i++) {
+		originalArray[i] = i + 1;
+	}
+	var d1 = new Date().getTime();
+	originalArray.sort(function() {
+		return 0.5 - Math.random();
+	});
+
+	var d2 = new Date().getTime();
+	var time = d2 - d1;
+	return originalArray;
+}
+
+var randomNaturalNumber = function(count,rank) {
+	var originalArray = new Array(); //原数组 
+	var d1 = new Date().getTime();
+	var sign = 1;
+	//给原数组originalArray赋值 
+	if(Math.random()-0.5>0){
+		 sign = 1;
+	}
+	else sign = -1
+	var seed = Math.floor(Math.random()*rank)*sign;
+
+	for (var i = 0; i < count; i++) {
+		originalArray[i] = seed + i+1;
+	}
+	
+	originalArray.sort(function() {
+		return 0.5 - Math.random();
+	});
+
+	var d2 = new Date().getTime();
+	var time = d2 - d1;
+	return originalArray;
+}
+
+var MaxDefaultNum = function(){
+	randomNaturalNumber(50)
+}
+
+
+console.log(randomNaturalNumber(100,100));
+</script>
