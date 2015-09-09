@@ -20,7 +20,7 @@ originalArray[i]=i+1;
 } 
 var d1=new Date().getTime(); 
 originalArray.sort(function(){ return 0.5 - Math.random(); }); 
-for (var i=0;i<count;i++){ 
+
 
 var d2=new Date().getTime(); 
 var time = d2-d1;
