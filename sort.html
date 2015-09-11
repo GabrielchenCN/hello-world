@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<script type = "text/javascript" >
+	//生成随机自然数数组
+	var randomNaturalNumber = function(count, rank) {
+			var originalArray = new Array(); //原数组 
+			var d1 = new Date().getTime();
+			var sign = 1;
+			//给原数组originalArray赋值 
+			if (Math.random() - 0.5 > 0) {
+				sign = 1;
+			} else sign = -1
+			var seed = Math.floor(Math.random() * rank) * sign;
+			for (var i = 0; i < count; i++) {
+				originalArray[i] = seed + i + 1;
+			}
+
+			originalArray.sort(function() {
+				return 0.5 - Math.random();
+			});
+			var d2 = new Date().getTime();
+			var time = d2 - d1;
+			console.log(originalArray);
+			return originalArray;
+		}
+
+var main = function(fn){
+    var obj = {};
+	
+	var D1 = new Date().getTime();
+	
+	obj.arr = fn;
+
+	var D2 = new Date().getTime();
+	var time=D2-D1;
+	obj.time;
+	
+	return obj;
+
+		}
+		/******************************从小到大排序***********************************/
+//直接插入排序 时间复杂性为O(n^2)，空间复杂度为O(1)。
+var straightInsertionSort = function(oArray) {
+	var obj = {};
+	
+	var D1 = new Date().getTime();
+	//直接插入排序
+	var len = oArray.length;
+
+	for (var i = 1; i < len; i++) {
+		if (oArray[i]<oArray[i-1]) {
+			var temp = oArray[i];
+			var  k = i-1;
+			for(var j = k ; j>=0&&temp<oArray[k];j--){
+				k--;
+				oArray[j+1]=oArray[j];
+			}	
+			//k已经-- ，所以要+1
+			oArray[k+1]=temp;
+		};
+
+
+	}
+
+	var D2 = new Date().getTime();
+	obj.time=D2-D1+'ms';
+	obj.arr = oArray;
+	return obj;
+
+} 
+
+//二分插入排序，最好时间为O(n);最坏平均时间O(n^2)
+var BarnarySort = function(oArray){
+	var obj = {};
+	
+	var D1 = new Date().getTime();
+	var len = oArray.length;
+	//直接插入排序,关键是找到left
+	for (var i = 1; i < len; i++) {
+		var temp = oArray[i];
+		var left = 0,right = i-1,mid=0;
+		while(left<=right){
+			mid = Math.floor((left+right)/2);
+			if (temp<oArray[mid]) {
+				right = mid -1 ;
+			}
+			else {left = mid +1}
+		}
+		for(var j = i-1 ; j>=left;j--){
+			oArray[j+1]=oArray[j];
+		}
+		if (left !=i) {
+			oArray[left]=temp;
+		};
+
+
+	}
+
+	var D2 = new Date().getTime();
+	obj.time=D2-D1+'ms';
+	obj.arr = oArray;
+	return obj;
+
+}
+
+//冒泡排序Bubble Sort 平均时间复杂度为 O(n^2)。
+var BubbleSort = function(oArray){
+		var obj = {};
+	
+	var D1 = new Date().getTime();
+	var len = oArray.length;
+	for(var i = 0 ; i<len -1;i++){
+		for(var j = 0 ; j < len- i -1; j++){
+			if (oArray[j]>oArray[j+1]) {
+				var temp = oArray[j+1];
+				oArray[j+1]=oArray[j];
+				oArray[j]=temp;
+			}
+
+		}
+	}
+		var D2 = new Date().getTime();
+	obj.time=D2-D1+'ms';
+	obj.arr = oArray;
+	return obj;
+}
+//快速排序：QuickSort
+var QuickSort = function(oArray){
+    var obj = {};
+	
+	var D1 = new Date().getTime();
+	
+	//QuickSort
+	var len = oArray.length;
+	var key = oArray[0];
+	var i = 0 ,j = len-1;
+	for(;i<j ;i++){
+		if (oArray[i]>key) {
+			var tmp = oArray[i];
+			oArray[i]=oArray[j];
+			oArray[j]=tmp;
+		};
+
+	}
+	for(;j>i ;j--){
+		if (oArray[j]<key) {
+			var tmp = oArray[i];
+			oArray[i]=oArray[j];
+			oArray[j]=tmp;
+		};
+	}
+	if (i==j) {
+		
+	};
+
+
+	var D2 = new Date().getTime();
+	var time=D2-D1+'ms';
+	obj.time;
+	
+	return obj;
+}
+
+
+var main = function(fn){
+    var obj = {};
+	
+	var D1 = new Date().getTime();
+	
+	obj.arr = fn;
+
+	var D2 = new Date().getTime();
+	var time=D2-D1+'ms';
+	obj.time;
+	
+	return obj;
+}
+
+
+//归并排序：Merge sort
+//基数排序：Radix Sort
+//堆排序：Heap Sort
+//直接选择排序：Straight Select Sort
+//希尔排序：Shell Sort
+var SIS = straightInsertionSort(randomNaturalNumber(10000,10));
+var BS = BarnarySort(randomNaturalNumber(10000,10));
+var BubbleS = BubbleSort(randomNaturalNumber(10000,10));
+var QS = QuickSort(randomNaturalNumber(10000,10));
+
+document.write('直接插入排序:</br>'+SIS.arr+"</br>时间"+SIS.time+"</br>"+
+'二分插入排序:</br>'+BS.arr+"</br>时间"+BS.time+"</br>"+
+'冒泡排序:</br>'+BubbleS.arr+"</br>时间"+BubbleS.time+"</br>"+
+'快速排序:</br>'+QS.arr+"</br>时间"+QS.time+"</br>"+
+	);
+
+
+</script>
+<div id ="input">
+	
+</div>
+
+</html>
