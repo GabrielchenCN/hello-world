@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>baidu</title>
+</head>
+<script type="text/javascript">
+
+inArr = ["a","b","c","b","a","d","f","e","05","4a"];
+hotArr = ["1","2","3","4"];
+var my = function(inArr,hotArr){
+	var num =1;
+	var objArr=[];
+	
+	for(var i = 0 ; i <inArr.length ; i++){
+		num=1;
+		for(var j = 0 ; j <objArr.length ; j++){
+			if (objArr[j].key==inArr[i]) {
+				objArr[j].value= parseInt(objArr[j].value)+1;
+				num=0;
+			}
+		}
+		if (num) {
+			    var obj ={} ;
+				objArr.push(obj);
+				objArr[objArr.length-1].key = inArr[i];
+				objArr[objArr.length-1].value= 1;
+				
+		};
+		        
+	}
+var resArr = [];
+    for(var n = 0 ; n<hotArr.length ; n++){
+    	for(var m = 0 ; m<objArr.length ; m++){
+    		if (hotArr[n]==objArr[m].value) {
+    			resArr.push(objArr[m].key);
+    			break;
+    		}
+    		
+    	}
+    	if(resArr.length-1!=n){
+    		resArr.push("NO");
+    	}
+    	
+	}
+	return resArr;
+};
+document.write(my(inArr,hotArr));
+
+</script>
+<body>
+<p>Hello HTML5</p>
+</body>
+</html>
